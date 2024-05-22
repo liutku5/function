@@ -19,12 +19,13 @@ public class Main {
         System.out.println(random(5, 20));
         System.out.println("Užduotis 6");
         System.out.println("----------------");
-        int[] at = randomCycle(2, 34, 5);
+        int[] arrRes = randomCycle(1, 24, 5);
         System.out.println("Užduotis 7");
         System.out.println("----------------");
-        int[] res = randomCycle(2, 14, 3);
+        System.out.println("suma: " + ranCycleSum(arrRes));
         System.out.println("Užduotis 8");
         System.out.println("----------------");
+        System.out.println("vidurkis: " + ranCycleAverage(arrRes));
         System.out.println("Užduotis 9");
         System.out.println("----------------");
         rectangle(4, 9);
@@ -32,6 +33,13 @@ public class Main {
         System.out.println("----------------");
         simbolCounter("Šiandien labai graži diena");
         System.out.println("Užduotis 11");
+        System.out.println("----------------");
+        String text = reverseSentence("Naglis");
+        System.out.println(text);
+        System.out.println("Sunki užduotis 1");
+        System.out.println("----------------");
+        text("Labas");
+        System.out.println("Sunki užduotis 2");
         System.out.println("----------------");
     }
 
@@ -77,17 +85,27 @@ public class Main {
     }
 
     //  Užduotis 7
-//  Sukurkite Funkciją kuri panaudotų 6toje užduotyje sugeneruotą masyvą (priimtų kaip kintamąjį),
-//  susumuotų ir gražintų reikšmę
-//    public static int ranCycleSum(numbers){
-//            int sum =0;
-//        for (int i = 0; i < numbers.length; i++) {
-//            sum += numbers[i];
-//        }
-//        return sum;
-//        }
-//  Užduotis 8
-//  Užduotis 9
+
+    public static int ranCycleSum(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return sum;
+    }
+
+    //  Užduotis 8
+    public static double ranCycleAverage(int[] numbers) {
+        double sum = 0;
+        double variable = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+            variable++;
+        }
+        return sum / variable;
+    }
+
+    //  Užduotis 9
     public static void rectangle(int length, int width) {
         for (int i = 0; i < length; i++) {
             for (int z = 0; z < width; z++) {
@@ -116,11 +134,20 @@ public class Main {
         System.out.println("Letters: " + letters);
         System.out.println("Spaces: " + spaces);
     }
-//    Užduotis 11
-//  Sukurkite Funkciją kuri priimtų sakinį, jį užkoduotų ir grąžintų. Kodavimas - sakinį apsukame iš kitos pusės.
-//  Pvz “Naglis” turi gautis “silgaN”.
-//    public static String reverseSentence(String words){
-//
-//    }
+    //    Užduotis 11
+
+    public static String reverseSentence(String words) {
+        StringBuilder reverseSentence = new StringBuilder(words).reverse();
+        return reverseSentence.toString();
+    }
+
+    //    Sunki užduotis 1
+    public static void text(String words) {
+        System.out.println("---" + words + "---");
+    }
+    //    Sunki užduotis 2
+//    Sugeneruokite atsitiktinį stringą iš raidžių ir skaičių (10 simbolių). Atspausdinkite simbolius stulpeliu.
+//    Jei tai skaičius apgaubkite “ [ 7 ]”. Jei skaičiai eina keli iš eilės, apgaubkite juos kartu. [75].
+
 
 }
