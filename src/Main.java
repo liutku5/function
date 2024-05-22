@@ -41,19 +41,21 @@ public class Main {
         System.out.println(text("Labas"));
         System.out.println("Sunki užduotis 2");
         System.out.println("----------------");
-        ranSimbols(10);
+        String rndStr = generateRndStr(10);
+        System.out.println(rndStr);
+        ranSimbols(rndStr);
         System.out.println("Sunki užduotis 3");
         System.out.println("----------------");
         System.out.println(intDivisible(6));
         System.out.println("Sunki užduotis 4");
         System.out.println("----------------");
 //    Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
-        int arr = 5;
-        for (int i = 0; i < arr; i++) {
-            int number = ranInt(33, 77);
-            int numbers = intDivisible(number);
-            System.out.println(number + " " + numbers);
+        int[] rndArr = ranArr(33, 77, 5);
+        for (int i = 0; i < rndArr.length; i++) {
 
+//            rndArr[i]
+            // eik googlint
+//            bubble sort java
         }
         System.out.println("Sunki užduotis 5");
         System.out.println("----------------");
@@ -174,17 +176,26 @@ public class Main {
     }
 
     //    Sunki užduotis 2
-//    Jei skaičiai eina keli iš eilės, apgaubkite juos kartu. [75].
-    public static void ranSimbols(int quantity) {
-        for (int i = 0; i < quantity; i++) {
-            if (Math.random() > 0.5) {
-                char letter = (char) (Math.random() * 26 + 'A');
-                System.out.println(letter);
-            } else {
-                int res = (int) Math.round(Math.random() * 9);
-                System.out.println("[" + res + "]");
-            }
+
+    //    Jei skaičiai eina keli iš eilės, apgaubkite juos kartu. [75].
+    public static void ranSimbols(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isLetter(text.charAt(i))) {
+                System.out.println(text.charAt(i));
+            } else if (Character.isDigit(text.charAt(i))) {
+                System.out.println("[" + text.charAt(i) + "]");
+            } if
+
         }
+    }
+
+    public static String generateRndStr(int length) {
+        String symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890";
+        String text = "";
+        for (int i = 0; i < length; i++) {
+            text += symbols.charAt((int) (Math.random() * symbols.length()));
+        }
+        return text;
     }
 
     //    Sunki užduotis 3
