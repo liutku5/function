@@ -13,19 +13,19 @@ public class Main {
         System.out.println("Užduotis 4");
         System.out.println("----------------");
         int[] array = {4, 5, 10, 75};
-        cycle(array);
+        array(array);
         System.out.println("Užduotis 5");
         System.out.println("----------------");
-        System.out.println(random(5, 20));
+        System.out.println(ranInt(5, 20));
         System.out.println("Užduotis 6");
         System.out.println("----------------");
-        int[] arrRes = randomCycle(1, 24, 5);
+        int[] arrRes = ranArr(1, 24, 5);
         System.out.println("Užduotis 7");
         System.out.println("----------------");
-        System.out.println("suma: " + ranCycleSum(arrRes));
+        System.out.println("suma: " + ranArrSum(arrRes));
         System.out.println("Užduotis 8");
         System.out.println("----------------");
-        System.out.println("vidurkis: " + ranCycleAverage(arrRes));
+        System.out.println("vidurkis: " + ranArrAverage(arrRes));
         System.out.println("Užduotis 9");
         System.out.println("----------------");
         rectangle(4, 9);
@@ -38,9 +38,36 @@ public class Main {
         System.out.println(text);
         System.out.println("Sunki užduotis 1");
         System.out.println("----------------");
-        text("Labas");
+        System.out.println(text("Labas"));
         System.out.println("Sunki užduotis 2");
         System.out.println("----------------");
+        ranSimbols(10);
+        System.out.println("Sunki užduotis 3");
+        System.out.println("----------------");
+        System.out.println(intDivisible(6));
+        System.out.println("Sunki užduotis 4");
+        System.out.println("----------------");
+//    Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
+        int arr = 5;
+        for (int i = 0; i < arr; i++) {
+            int number = ranInt(33, 77);
+            int numbers = intDivisible(number);
+            System.out.println(number + " " + numbers);
+
+        }
+        System.out.println("Sunki užduotis 5");
+        System.out.println("----------------");
+        int arr1 = 5;
+        int primeCount = 0;
+        for (int i = 0; i < arr1; i++) {
+            int number1 = ranInt(333, 777);
+            int numbers1 = intDivisible(number1);
+            System.out.println(number1 + " " + numbers1);
+            if (numbers1 == 0) {
+                primeCount++;
+            }
+        }
+        System.out.println("Prime number count: " + primeCount);
     }
 
     //    užduotis 1
@@ -60,7 +87,7 @@ public class Main {
 
     //  Užduotis 4
 
-    public static void cycle(int[] number) {
+    public static void array(int[] number) {
         String result = "";
         for (int i = 0; i < number.length; i++) {
             result += number[i] + ",";
@@ -69,13 +96,13 @@ public class Main {
     }
     //  Užduotis 5
 
-    public static int random(int min, int max) {
+    public static int ranInt(int min, int max) {
         int res = (int) Math.round(Math.random() * (max - min) + min);
         return res;
     }
 
     //  Užduotis 6
-    public static int[] randomCycle(int min, int max, int length) {
+    public static int[] ranArr(int min, int max, int length) {
         int[] result = new int[length];
         for (int i = 0; i < length; i++) {
             int res = (int) Math.round(Math.random() * (max - min) + min);
@@ -86,7 +113,7 @@ public class Main {
 
     //  Užduotis 7
 
-    public static int ranCycleSum(int[] numbers) {
+    public static int ranArrSum(int[] numbers) {
         int sum = 0;
         for (int i = 0; i < numbers.length; i++) {
             sum += numbers[i];
@@ -95,7 +122,7 @@ public class Main {
     }
 
     //  Užduotis 8
-    public static double ranCycleAverage(int[] numbers) {
+    public static double ranArrAverage(int[] numbers) {
         double sum = 0;
         double variable = 0;
         for (int i = 0; i < numbers.length; i++) {
@@ -142,12 +169,37 @@ public class Main {
     }
 
     //    Sunki užduotis 1
-    public static void text(String words) {
-        System.out.println("---" + words + "---");
+    public static String text(String words) {
+        return "---" + words + "---";
     }
+
     //    Sunki užduotis 2
-//    Sugeneruokite atsitiktinį stringą iš raidžių ir skaičių (10 simbolių). Atspausdinkite simbolius stulpeliu.
-//    Jei tai skaičius apgaubkite “ [ 7 ]”. Jei skaičiai eina keli iš eilės, apgaubkite juos kartu. [75].
+//    Jei skaičiai eina keli iš eilės, apgaubkite juos kartu. [75].
+    public static void ranSimbols(int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            if (Math.random() > 0.5) {
+                char letter = (char) (Math.random() * 26 + 'A');
+                System.out.println(letter);
+            } else {
+                int res = (int) Math.round(Math.random() * 9);
+                System.out.println("[" + res + "]");
+            }
+        }
+    }
+
+    //    Sunki užduotis 3
+    public static int intDivisible(int number) {
+        int count = 0;
+        for (int i = 2; i <= number; i++) {
+            if (number % i == 0) {
+                count++;
+            }
+            if (number == i) {
+                count--;
+            }
+        }
+        return count;
+    }
 
 
 }
